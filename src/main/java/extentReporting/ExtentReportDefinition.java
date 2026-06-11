@@ -1,13 +1,13 @@
 package extentReporting;
 
 import java.io.File;
+
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.ChartLocation;
-import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 /**
- * Singleton class to manage Extent Report initialization and configuration
+ * Singleton class to manage Extent Report v5 initialization and configuration
+ * Uses ExtentSparkReporter for HTML reporting (ExtentHtmlReporter deprecated in v5)
  */
 public class ExtentReportDefinition {
     private static ExtentReports extent;
@@ -28,38 +28,39 @@ public class ExtentReportDefinition {
     }
 
     /**
-     * Initialize and configure the Extent Report
+     * Initialize and configure the Extent Report v5
      */
     private static ExtentReports initializeReport() {
         String reportPath = createReportDirectory();
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
-        configureReporter(htmlReporter);
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath);
+        configureReporter(sparkReporter);
 
         extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
+        extent.attachReporter(sparkReporter);
         setSystemInfo();
 
         return extent;
     }
 
     /**
-     * Configure the HTML reporter with standard settings
+     * Configure the Spark reporter with standard settings
+     * Note: v5 uses ExtentSparkReporter which has simplified configuration
      */
-    private static void configureReporter(ExtentHtmlReporter reporter) {
-        reporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);
-        reporter.config().setChartVisibilityOnOpen(true);
-        reporter.config().setTheme(Theme.STANDARD);
-        reporter.config().setDocumentTitle(REPORT_FILE_NAME);
-        reporter.config().setEncoding("utf-8");
+    private static void configureReporter(ExtentSparkReporter reporter) {
         reporter.config().setReportName("Test Automation Report");
-        reporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
+        reporter.config().setDocumentTitle(REPORT_FILE_NAME);
+        reporter.config().setTheme(com.aventstack.extentreports.reporter.configuration.Theme.DARK);
+        reporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a");
     }
 
     /**
      * Set system information in the report
      */
     private static void setSystemInfo() {
-        extent.setSystemInfo("OS", System.getProperty("os.name"));
+        extent.setSystemInfo("Operating System", System.getProperty("os.name"));
+        extent.setSystemInfo("OS Version", System.getProperty("os.version"));
+        extent.setSystemInfo("Java Version", System.getProperty("java.version"));
+        extent.setSystemInfo("User Name", System.getProperty("user.name"));
         extent.setSystemInfo("Environment", "QA");
     }
 

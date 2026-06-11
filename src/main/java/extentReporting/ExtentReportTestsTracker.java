@@ -9,6 +9,7 @@ import com.aventstack.extentreports.Status;
 
 /**
  * Thread-safe utility to manage and track extent test instances per thread
+ * Compatible with ExtentReports v5.x
  */
 public class ExtentReportTestsTracker {
     private static final Map<Long, ExtentTest> TEST_MAP = new HashMap<>();
@@ -67,6 +68,46 @@ public class ExtentReportTestsTracker {
         ExtentTest test = getCurrentTest();
         if (test != null) {
             test.log(Status.INFO, message);
+        }
+    }
+
+    /**
+     * Log a WARNING message for the current test
+     */
+    public static synchronized void logWarning(String message) {
+        ExtentTest test = getCurrentTest();
+        if (test != null) {
+            test.log(Status.WARNING, message);
+        }
+    }
+
+    /**
+     * Add category/tag to the current test (v5 feature)
+     */
+    public static synchronized void addCategory(String category) {
+        ExtentTest test = getCurrentTest();
+        if (test != null) {
+            test.assignCategory(category);
+        }
+    }
+
+    /**
+     * Add author to the current test (v5 feature)
+     */
+    public static synchronized void addAuthor(String author) {
+        ExtentTest test = getCurrentTest();
+        if (test != null) {
+            test.assignAuthor(author);
+        }
+    }
+
+    /**
+     * Add device information to the current test (v5 feature)
+     */
+    public static synchronized void addDevice(String device) {
+        ExtentTest test = getCurrentTest();
+        if (test != null) {
+            test.assignDevice(device);
         }
     }
 
