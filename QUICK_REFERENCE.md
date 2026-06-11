@@ -4,8 +4,7 @@
 
 ### Dependencies
 ```
-JUnit 4.13.1           ❌ REMOVED
-Selenium 4.38.0 → 4.24.0
+Selenium 4.38.0 → 4.40.0 ✅ UPGRADED
 TestNG 7.7.0 → 7.7.1
 ExtentReports 3.1.5 → 5.1.1 ⭐ MAJOR UPDATE
 Log4j 2.25.4 → 2.23.1

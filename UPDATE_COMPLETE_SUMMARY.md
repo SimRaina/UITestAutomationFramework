@@ -21,7 +21,7 @@ Your UITestAutomationFramework has been successfully migrated from ExtentReports
 #### Updated
 | Library | Old | New | Type |
 |---------|-----|-----|------|
-| **Selenium** | 4.38.0 | 4.24.0 | Browser Automation |
+| **Selenium** | 4.38.0 | 4.40.0 | Browser Automation |
 | **TestNG** | 7.7.0 | 7.7.1 | Test Framework |
 | **ExtentReports** | 3.1.5 | **5.1.1** | 🟢 MAJOR |
 | **Log4j Core** | 2.25.4 | 2.23.1 | Logging |
@@ -125,7 +125,7 @@ logInfo(String message)
 
 **CVE Check Results:**
 - ✅ junit:junit@4.13.1 - No CVEs
-- ✅ org.seleniumhq.selenium:selenium-java@4.24.0 - No CVEs
+- ✅ org.seleniumhq.selenium:selenium-java@4.40.0 - No CVEs
 - ✅ org.testng:testng@7.7.1 - No CVEs
 - ✅ com.aventstack:extentreports@5.1.1 - No CVEs
 - ✅ org.apache.logging.log4j:log4j-core@2.23.1 - No CVEs

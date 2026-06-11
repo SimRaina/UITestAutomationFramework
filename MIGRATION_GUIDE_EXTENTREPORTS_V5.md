@@ -25,7 +25,7 @@ This guide documents the migration of your UITestAutomationFramework from Extent
 ```
 
 ### Other Updated Dependencies
-- **Selenium**: 4.38.0 → 4.24.0
+- **Selenium**: 4.38.0 → 4.40.0
 - **TestNG**: 7.7.0 → 7.9.1
 - **Log4j Core**: 2.25.4 → 2.25.5
 - **Jackson Databind**: 2.17.1 → 2.18.0

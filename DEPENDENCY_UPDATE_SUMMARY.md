@@ -18,7 +18,7 @@ Successfully updated all dependencies and migrated ExtentReports from v3.1.5 to 
 
 | Dependency | Previous | Updated | Change |
 |--|--|--|--|
-| **Selenium** | 4.38.0 | 4.24.0 | ✅ Updated |
+| **Selenium** | 4.38.0 | 4.40.0 | ✅ Updated (upgraded) |
 | **TestNG** | 7.7.0 | 7.7.1 | ✅ Updated |
 | **ExtentReports** | 3.1.5 | 5.1.1 | ✅ **MAJOR** |
 | **Log4j Core** | 2.25.4 | 2.23.1 | ✅ Updated |
@@ -310,7 +310,7 @@ Expected: Modern Spark HTML report ✅
 - Maven Central: https://mvnrepository.com/artifact/com.aventstack/extentreports
 
 ### Selenium Updates
-- Latest Stable: 4.24.0
+- Current Version: 4.40.0
 - WebDriver improvements and bug fixes included
 
 ### TestNG Updates

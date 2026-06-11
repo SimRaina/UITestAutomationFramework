@@ -85,3 +85,11 @@
 2026-06-11 11:21:31.879 INFO [main] [pageClasses.LoginPage.loginSuccess(LoginPage.java:45)] - Enter Username
 2026-06-11 11:21:31.951 INFO [main] [pageClasses.LoginPage.loginSuccess(LoginPage.java:47)] - Enter Password
 2026-06-11 11:21:32.107 INFO [main] [pageClasses.LoginPage.loginSuccess(LoginPage.java:50)] - Clicked on Login Button
+2026-06-11 12:15:45.174 INFO [main] [test.LoginTest.testLoginNegative(LoginTest.java:39)] - Test Login
+2026-06-11 12:15:46.688 INFO [main] [test.LoginTest.testLoginNegative(LoginTest.java:44)] - admin
+2026-06-11 12:15:46.689 INFO [main] [test.LoginTest.testLoginNegative(LoginTest.java:46)] - 1234
+2026-06-11 12:15:46.713 INFO [main] [pageClasses.LoginPage.login(LoginPage.java:33)] - Enter Username
+2026-06-11 12:15:46.787 INFO [main] [pageClasses.LoginPage.login(LoginPage.java:35)] - Enter Password
+2026-06-11 12:15:46.966 INFO [main] [pageClasses.LoginPage.login(LoginPage.java:38)] - Clicked on Login Button
+2026-06-11 12:15:52.587 INFO [main] [test.LoginTest.testLoginNegative(LoginTest.java:50)] - Invalid credentials
+2026-06-11 12:15:52.724 INFO [main] [screenshot.ScreenShot.CaptureScreenShot(ScreenShot.java:25)] - Screenshot Taken
