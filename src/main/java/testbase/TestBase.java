@@ -29,7 +29,7 @@ public class TestBase {
 	public void selectBrowser(String browser_type) {
 		if(browser_type.equalsIgnoreCase("Chrome")) {
 			driver = new ChromeDriver();
-		    log.info("Inside Select Browser");
+		    log.info("Chrome browser object created");
 		}
 	}
 	
@@ -37,7 +37,7 @@ public class TestBase {
 		driver.get(url);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		log.info("Inside Get URL");
+		log.info("URL Opened");
 	}
 
 }
