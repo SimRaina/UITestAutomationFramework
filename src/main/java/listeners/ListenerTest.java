@@ -4,55 +4,54 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.Status;
-
-import extentReporting.ExtentReportDefinition;
 import extentReporting.ExtentReportTestsTracker;
 
-public class ListenerTest implements ITestListener{
+/**
+ * TestNG listener to capture test execution events and log to Extent Reports
+ */
+public class ListenerTest implements ITestListener {
 
-	public void onTestStart(ITestResult result) {
-		
-		System.out.println("Test Started " + result.getName()); 
-		ExtentReportTestsTracker.startTest(result.getMethod().getMethodName());
-		
-	}
+    @Override
+    public void onTestStart(ITestResult result) {
+        String testName = result.getMethod().getMethodName();
+        System.out.println("Test Started: " + testName);
+        ExtentReportTestsTracker.startTest(testName);
+    }
 
-	public void onTestSuccess(ITestResult result) {
-		
-		System.out.println("Test Passed " + result.getName()); 
-		ExtentReportTestsTracker.getStatus().log(Status.PASS, "Test Passed");
-		
-	}
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        String testName = result.getName();
+        System.out.println("Test Passed: " + testName);
+        ExtentReportTestsTracker.logPass("Test Passed");
+    }
 
-	public void onTestFailure(ITestResult result) {
-		
-		System.out.println("Test Failed " + result.getName());
-		ExtentReportTestsTracker.getStatus().log(Status.FAIL, "Test Failed");
-		
-	}
+    @Override
+    public void onTestFailure(ITestResult result) {
+        String testName = result.getName();
+        System.out.println("Test Failed: " + testName);
+        ExtentReportTestsTracker.logFail("Test Failed");
+    }
 
-	public void onTestSkipped(ITestResult result) {
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        String testName = result.getName();
+        System.out.println("Test Skipped: " + testName);
+        ExtentReportTestsTracker.logSkip("Test Skipped");
+    }
 
-		System.out.println("Test Skipped " + result.getName()); 
-		ExtentReportTestsTracker.getStatus().log(Status.SKIP, "Test Skipped");
-		
-	}
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        // Not implemented
+    }
 
-	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void onStart(ITestContext context) {
+        // Not implemented
+    }
 
-	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void onFinish(ITestContext context) {
-		ExtentReportTestsTracker.finishTest();
-		ExtentReportDefinition.getInstance().flush();
-		
-	}
-
+    @Override
+    public void onFinish(ITestContext context) {
+        System.out.println("Test Suite Finished");
+        ExtentReportTestsTracker.finishAllTests();
+    }
 }
