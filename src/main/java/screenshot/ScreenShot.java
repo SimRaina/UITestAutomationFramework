@@ -15,12 +15,9 @@ public class ScreenShot {
 	
 	public void CaptureScreenShot(WebDriver driver, String scenario_name){	
 		try {
-			// TakesScreenshot ts=(TakesScreenshot)driver;
 			File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			
 			SimpleDateFormat s=new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
 			String d = s.format(new Date());
-			
 			FileHandler.copy(source, new File("ScreenShots/"+d+"-"+scenario_name+".png"));
 			log.info("Screenshot Taken");
 		}  catch (Exception e) {
